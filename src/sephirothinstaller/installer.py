@@ -51,7 +51,7 @@ class SephirothInstaller:
             self.update(5, "Getting latest release...")
 
             api = (
-                "https://api.github.com/repos/oxygen-me/SephirothOS-v2/releases/latest"
+                "https://api.github.com/repos/sephiroth-os/sephirothos/releases/latest"
             )
 
             response = requests.get(api)
@@ -123,6 +123,9 @@ class SephirothInstaller:
 
             files = list(root.rglob("*"))
 
+            if not files:
+                raise RuntimeError("The downloaded release archive is empty.")
+
             total = len(files)
 
             for i, item in enumerate(files):
@@ -160,20 +163,6 @@ class SephirothInstaller:
                 98,
                 "Cleaning up..."
             )
-
-        target_dir = Path(str(os.getenv('APPDATA'))) / 'SephirothOS'
-        target_dir.mkdir(parents=True, exist_ok=True)
-
-        data = {
-            "edition": self.edition,
-            "flag": "seth67",
-            "upd": False
-        }
-
-        edition_path = Path(target_dir) / "license.json"
-
-        with open(edition_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4)
 
         self.update(
             100,
