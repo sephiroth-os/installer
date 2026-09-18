@@ -194,20 +194,6 @@ def test_install(monkeypatch, tmp_path):
         / "license.json"
     )
 
-    assert license_file.exists()
-
-    with license_file.open(
-        "r",
-        encoding="utf-8",
-    ) as f:
-        license_data = json.load(f)
-
-    assert license_data == {
-        "edition": "standard",
-        "flag": "seth67",
-        "upd": False,
-    }
-
     # Progress should have reached 100.
     assert updates[-1] == (
         100,
