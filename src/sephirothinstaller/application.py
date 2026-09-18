@@ -8,7 +8,7 @@ import requests
 from PySide6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
 
-from installer import SephirothInstaller
+from sephirothinstaller.installer import SephirothInstaller
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QHBoxLayout, QSizePolicy, QStackedWidget, \
     QPushButton, QFileDialog, QLineEdit, QFrame, QMessageBox, QProgressBar, QCheckBox
 from pathlib import Path
@@ -98,7 +98,7 @@ class InstallerUI(QWidget):
         self.watermark.setSizePolicy(QSizePolicy.Policy.Ignored, QSizePolicy.Policy.Ignored)
         self.watermark.setScaledContents(True)
 
-        pixmap = QPixmap("watermark.png")
+        pixmap = QPixmap(":/image/watermark.png")
 
         self.watermark.setPixmap(pixmap)
         self.watermark.show()
