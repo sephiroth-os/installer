@@ -25,5 +25,6 @@ htmlcov/
 Thumbs.db
 
 # Media
-assets/
+src/sephirothinstaller/assets/
 src/sephirothinstaller/watermark.png
+compilations/

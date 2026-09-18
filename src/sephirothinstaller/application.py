@@ -1,8 +1,9 @@
 from PySide6.QtCore import QUrl, Qt, QThread, Signal
 from PySide6.QtGui import QPixmap
 
-import assets.resources_rc
-import assets.resources2_rc
+import sephirothinstaller.assets.resources2_rc
+import sephirothinstaller.assets.resources_rc
+
 import requests
 from PySide6.QtMultimedia import QAudioOutput, QMediaPlayer
 from PySide6.QtMultimediaWidgets import QVideoWidget
